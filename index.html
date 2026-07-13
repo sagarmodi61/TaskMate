@@ -1,95 +1,735 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TaskMate | Shared Family Task Manager</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#333}
-header{background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;padding:80px 20px;text-align:center}
-header h1{font-size:56px;margin:0}
-header p{font-size:20px;max-width:700px;margin:20px auto}
-.btn{display:inline-block;background:#fff;color:#2563eb;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:bold}
-.container{max-width:1100px;margin:auto;padding:60px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
-.card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
-.card h3{color:#2563eb;margin-top:0}
-footer{background:#111827;color:#fff;text-align:center;padding:40px 20px;margin-top:60px}
-footer a{color:#93c5fd;text-decoration:none;margin:0 8px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskMate — Premium Shared Task & Productivity App</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="TaskMate is a premium, beautifully designed shared task management and productivity app for families and individuals. Streamline your life, coordinate shared lists, track schedules, and analyze progress in a stunning bento-grid interface.">
+  <meta name="keywords" content="TaskMate, shared tasks, family productivity, bento grid app, task management, calendar sync, location-based reminders, shared workspace">
+  <meta name="author" content="TaskMate Team">
+  <meta property="og:title" content="TaskMate — Premium Shared Task & Productivity App">
+  <meta property="og:description" content="Streamline your family productivity with TaskMate. Bento grid design, shared family calendars, smart reminders, and real-time syncing.">
+  <meta property="og:image" content="screenshots/1.png">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="screenshots/1.png">
+
+  <!-- Google Fonts: Inter & Outfit for iOS 26 aesthetics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<h1>TaskMate</h1>
-<p>Manage personal tasks, shared family tasks, reminders and daily routines with a clean, modern experience.</p>
-<a class="btn" href="#">Available on Google Play Soon</a>
-</header>
+  <!-- Aurora Background Effects -->
+  <div class="aurora-container">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
 
-<div class="container">
-<h2>Key Features</h2>
+  <!-- Header / Navigation -->
+  <header id="main-header" class="glass-nav">
+    <div class="header-container">
+      <a href="#hero" class="logo">
+        <span class="logo-icon">TM</span>
+        <span class="logo-text">TaskMate</span>
+      </a>
+      
+      <nav class="desktop-nav">
+        <a href="#features">Features</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#workspace">Workspace</a>
+        <a href="#statistics">Stats</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      
+      <div class="header-actions">
+        <!-- Light / Dark Mode Toggle -->
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M6.34 17.66l-1.41 1.41"></path><path d="M19.07 4.93l-1.41 1.41"></path></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        </button>
+        <a href="#download" class="btn btn-primary btn-sm">Download</a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<div class="grid">
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-menu" class="mobile-menu-overlay">
+    <nav class="mobile-nav-links">
+      <a href="#hero" class="mobile-link">Home</a>
+      <a href="#features" class="mobile-link">Features</a>
+      <a href="#gallery" class="mobile-link">Gallery</a>
+      <a href="#workspace" class="mobile-link">Workspace</a>
+      <a href="#statistics" class="mobile-link">Stats</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
+      <a href="#download" class="btn btn-primary mobile-link">Download Now</a>
+    </nav>
+  </div>
 
-<div class="card">
-<h3>✅ Personal Tasks</h3>
-<p>Create and manage your own daily tasks.</p>
-</div>
+  <main>
+    
+    <!-- 1. Hero Section -->
+    <section id="hero" class="section hero-section">
+      <div class="container hero-container">
+        <div class="hero-content reveal">
+          <div class="tagline-badge">Introducing iOS 26 Redesign</div>
+          <h1 class="hero-title">Plan life. <br><span class="text-gradient">Together, perfectly.</span></h1>
+          <p class="hero-subtitle">TaskMate is the premium shared task management tool built to synchronize your family's dynamic routine. Coordinate lists, track events, and stay aligned seamlessly.</p>
+          <div class="hero-ctas">
+            <a href="#download" class="btn btn-primary btn-glow">Get TaskMate</a>
+            <a href="#features" class="btn btn-secondary">Explore Features</a>
+          </div>
+          <div class="hero-stats-badge">
+            <div class="badge-item">
+              <span class="badge-num">4.9 ★</span>
+              <span class="badge-lbl">App Store</span>
+            </div>
+            <div class="badge-item">
+              <span class="badge-num">1M+</span>
+              <span class="badge-lbl">Active Users</span>
+            </div>
+          </div>
+        </div>
 
-<div class="card">
-<h3>👨‍👩‍👧 Shared Tasks</h3>
-<p>Collaborate with your family in real time.</p>
-</div>
+        <div class="hero-visual reveal">
+          <div class="hero-mockup-wrapper floating">
+            <div class="iphone-mockup">
+              <div class="iphone-bezel"></div>
+              <div class="iphone-screen">
+                <div class="iphone-notch">
+                  <div class="iphone-camera"></div>
+                  <div class="iphone-speaker"></div>
+                </div>
+                <div class="iphone-status-bar">
+                  <span class="time">9:41</span>
+                  <div class="icons">
+                    <span class="signal">📶</span>
+                    <span class="wifi">📶</span>
+                    <span class="battery">🔋</span>
+                  </div>
+                </div>
+                <img src="screenshots/1.png" alt="TaskMate Home Screen" class="iphone-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<h3>📅 Calendar</h3>
-<p>Plan your schedule with calendar integration.</p>
-</div>
+    <!-- 2. Features Section (Bento Grid) -->
+    <section id="features" class="section features-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Designed for <span class="text-gradient">Modern Productivity</span></h2>
+          <p class="section-subtitle">Experience a premium suite of tools customized for family orchestration and private checklists.</p>
+        </div>
 
-<div class="card">
-<h3>🔔 Smart Reminders</h3>
-<p>Never miss important tasks with reminders.</p>
-</div>
+        <div class="bento-grid">
+          <!-- Bento Box 1: Wide feature card -->
+          <div class="bento-box bento-wide glass-card reveal">
+            <div class="bento-content">
+              <div class="bento-icon">📅</div>
+              <h3>Smart Calendar Coordination</h3>
+              <p>Align schedules, sync timelines, and track family milestones in one central grid view.</p>
+            </div>
+            <div class="bento-visual">
+              <img src="screenshots/2.3.png" alt="Calendar Screen" class="bento-img-small floating-slow">
+            </div>
+          </div>
 
-<div class="card">
-<h3>👥 Assign Tasks</h3>
-<p>Assign work to your partner or family members.</p>
-</div>
+          <!-- Bento Box 2: Small feature card -->
+          <div class="bento-box glass-card reveal">
+            <div class="bento-content">
+              <div class="bento-icon">🔒</div>
+              <h3>Personal Task Lists</h3>
+              <p>Keep your personal checkboxes, widgets, and routines absolutely private and secure.</p>
+            </div>
+            <div class="bento-visual">
+              <img src="screenshots/2.1.png" alt="Personal Tasks Screen" class="bento-img-mini">
+            </div>
+          </div>
 
-<div class="card">
-<h3>☁️ Secure Cloud Sync</h3>
-<p>Sync tasks securely across your devices.</p>
-</div>
+          <!-- Bento Box 3: Small feature card -->
+          <div class="bento-box glass-card reveal">
+            <div class="bento-content">
+              <div class="bento-icon">👥</div>
+              <h3>Shared Workspace</h3>
+              <p>Real-time updates, custom roles, and joint project trackers for all members.</p>
+            </div>
+            <div class="bento-visual">
+              <img src="screenshots/6.png" alt="Shared Workspace Screen" class="bento-img-mini">
+            </div>
+          </div>
 
-</div>
+          <!-- Bento Box 4: Wide feature card -->
+          <div class="bento-box bento-wide glass-card reveal">
+            <div class="bento-content">
+              <div class="bento-icon">📊</div>
+              <h3>Intelligent Statistics</h3>
+              <p>Track metrics, weekly completion rates, and visual performance graphs automatically.</p>
+            </div>
+            <div class="bento-visual">
+              <img src="screenshots/4.1.png" alt="Stats Screen" class="bento-img-small floating-slow-alt">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h2 style="margin-top:60px;">Why Choose TaskMate?</h2>
+    <!-- 3. Interactive Screenshot Gallery -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Explore the <span class="text-gradient">Beautiful Interface</span></h2>
+          <p class="section-subtitle">A stunning UI meticulously designed using Apple iOS 26 design principles.</p>
+        </div>
 
-<ul>
-<li>Modern and simple interface</li>
-<li>Google Sign-In</li>
-<li>Family collaboration</li>
-<li>Task reminders</li>
-<li>Daily productivity tracking</li>
-<li>Secure Firebase cloud storage</li>
-</ul>
+        <div class="gallery-slider-container reveal">
+          <div class="gallery-track-wrapper">
+            <div class="gallery-track" id="gallery-track">
+              
+              <!-- Slide 1 -->
+              <div class="gallery-slide active" data-index="0">
+                <div class="slide-mockup">
+                  <div class="iphone-mockup">
+                    <div class="iphone-bezel"></div>
+                    <div class="iphone-screen">
+                      <div class="iphone-notch"></div>
+                      <div class="iphone-status-bar">
+                        <span class="time">9:41</span>
+                        <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+                      </div>
+                      <img src="screenshots/3.1.png" alt="TaskMate Screen 3.1" class="iphone-img">
+                    </div>
+                  </div>
+                </div>
+                <div class="slide-caption">
+                  <h3>Intelligent Dashboard</h3>
+                  <p>Get a glance at your daily workload, weather widgets, and family updates all in one place.</p>
+                </div>
+              </div>
 
-</div>
+              <!-- Slide 2 -->
+              <div class="gallery-slide" data-index="1">
+                <div class="slide-mockup">
+                  <div class="iphone-mockup">
+                    <div class="iphone-bezel"></div>
+                    <div class="iphone-screen">
+                      <div class="iphone-notch"></div>
+                      <div class="iphone-status-bar">
+                        <span class="time">9:41</span>
+                        <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+                      </div>
+                      <img src="screenshots/3.2.png" alt="TaskMate Screen 3.2" class="iphone-img">
+                    </div>
+                  </div>
+                </div>
+                <div class="slide-caption">
+                  <h3>Real-time Live Sync</h3>
+                  <p>Every checkmark synchronizes in milliseconds across your family members' screens.</p>
+                </div>
+              </div>
 
-<footer>
-<h2>TaskMate</h2>
-<p>Organize Life Together.</p>
+              <!-- Slide 3 -->
+              <div class="gallery-slide" data-index="2">
+                <div class="slide-mockup">
+                  <div class="iphone-mockup">
+                    <div class="iphone-bezel"></div>
+                    <div class="iphone-screen">
+                      <div class="iphone-notch"></div>
+                      <div class="iphone-status-bar">
+                        <span class="time">9:41</span>
+                        <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+                      </div>
+                      <img src="screenshots/3.3.png" alt="TaskMate Screen 3.3" class="iphone-img">
+                    </div>
+                  </div>
+                </div>
+                <div class="slide-caption">
+                  <h3>Custom Repeating Routines</h3>
+                  <p>Automate chores, grocery visits, or bill deadlines with intelligent repeating systems.</p>
+                </div>
+              </div>
 
-<p>
-<a href="privacy-policy.html">Privacy Policy</a> |
-<a href="delete-account.html">Delete Account</a>
-</p>
+              <!-- Slide 4 -->
+              <div class="gallery-slide" data-index="3">
+                <div class="slide-mockup">
+                  <div class="iphone-mockup">
+                    <div class="iphone-bezel"></div>
+                    <div class="iphone-screen">
+                      <div class="iphone-notch"></div>
+                      <div class="iphone-status-bar">
+                        <span class="time">9:41</span>
+                        <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+                      </div>
+                      <img src="screenshots/3.4.png" alt="TaskMate Screen 3.4" class="iphone-img">
+                    </div>
+                  </div>
+                </div>
+                <div class="slide-caption">
+                  <h3>Dynamic Search & Filters</h3>
+                  <p>Instantly sort through hundreds of historical or upcoming tasks with powerful tags.</p>
+                </div>
+              </div>
 
-<p>Email: support@taskmateapp.com</p>
+            </div>
+          </div>
 
-<p>© 2026 TaskMate • SM Apps Studio</p>
+          <!-- Controls -->
+          <div class="gallery-controls">
+            <button id="prev-slide" class="control-btn" aria-label="Previous Slide">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <div class="gallery-indicators" id="gallery-indicators">
+              <span class="indicator active" data-index="0"></span>
+              <span class="indicator" data-index="1"></span>
+              <span class="indicator" data-index="2"></span>
+              <span class="indicator" data-index="3"></span>
+            </div>
+            <button id="next-slide" class="control-btn" aria-label="Next Slide">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</footer>
+    <!-- 4. Personal Tasks Section -->
+    <section id="personal-tasks" class="section split-section alternate-bg">
+      <div class="container split-container">
+        <div class="split-visual reveal">
+          <div class="iphone-mockup floating">
+            <div class="iphone-bezel"></div>
+            <div class="iphone-screen">
+              <div class="iphone-notch"></div>
+              <div class="iphone-status-bar">
+                <span class="time">9:41</span>
+                <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+              </div>
+              <img src="screenshots/2.1.png" alt="Personal Tasks Screen" class="iphone-img">
+            </div>
+          </div>
+        </div>
+        <div class="split-content reveal">
+          <div class="section-tag">Privacy First</div>
+          <h2 class="split-title">Your own thoughts, <span class="text-gradient">securely kept.</span></h2>
+          <p class="split-text">TaskMate understands that not everything is a group project. Maintain private spaces, set separate categories, and view widgets containing only personal priorities.</p>
+          <ul class="features-list">
+            <li>
+              <span class="list-icon">✨</span>
+              <div>
+                <strong>Private Folders:</strong> Protect confidential logs or surprise planning.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">🔒</span>
+              <div>
+                <strong>Biometric Lock:</strong> Protect your files with Face ID or Touch ID security.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">📌</span>
+              <div>
+                <strong>Custom Home Widgets:</strong> Display tasks directly on your device home screen.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- 5. Shared Family Tasks Section -->
+    <section id="shared-tasks" class="section split-section">
+      <div class="container split-container">
+        <div class="split-content reveal">
+          <div class="section-tag">Real-Time Collaboration</div>
+          <h2 class="split-title">Organize lists for <span class="text-gradient">every project.</span></h2>
+          <p class="split-text">Perfect for shared grocery lists, event coordination, chore distribution, or workspace management. Watch lists update instantly with intuitive icons.</p>
+          <ul class="features-list">
+            <li>
+              <span class="list-icon">⚡</span>
+              <div>
+                <strong>Instant Live Syncing:</strong> Zero delay updates when someone checks an item.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">💬</span>
+              <div>
+                <strong>Chore Comments:</strong> Discuss items, drop images, or clarify details right on the task.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">🏷️</span>
+              <div>
+                <strong>Responsible Assignees:</strong> Specify task owners to establish clear responsibilities.
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual reveal">
+          <div class="iphone-mockup floating-slow">
+            <div class="iphone-bezel"></div>
+            <div class="iphone-screen">
+              <div class="iphone-notch"></div>
+              <div class="iphone-status-bar">
+                <span class="time">9:41</span>
+                <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+              </div>
+              <img src="screenshots/2.2.png" alt="Shared Family Tasks Screen" class="iphone-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Calendar Section -->
+    <section id="calendar" class="section split-section alternate-bg">
+      <div class="container split-container">
+        <div class="split-visual reveal">
+          <div class="iphone-mockup floating">
+            <div class="iphone-bezel"></div>
+            <div class="iphone-screen">
+              <div class="iphone-notch"></div>
+              <div class="iphone-status-bar">
+                <span class="time">9:41</span>
+                <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+              </div>
+              <img src="screenshots/2.3.png" alt="Calendar Screen" class="iphone-img">
+            </div>
+          </div>
+        </div>
+        <div class="split-content reveal">
+          <div class="section-tag">Agenda & Timelines</div>
+          <h2 class="split-title">Consolidate events and <span class="text-gradient">checklists together.</span></h2>
+          <p class="split-text">Stop toggling between standard checklists and external calendars. TaskMate blends scheduled calendar events with dynamic checkpoints inside a single, custom agenda timeline.</p>
+          <ul class="features-list">
+            <li>
+              <span class="list-icon">🗓️</span>
+              <div>
+                <strong>Third-Party Sync:</strong> Automatically import data from Google Calendar, Outlook, or Apple Calendar.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">⏳</span>
+              <div>
+                <strong>Timeline View:</strong> See your entire day sequenced beautifully.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">🚨</span>
+              <div>
+                <strong>Smart Collisions:</strong> Get warned when multiple tasks overlap with scheduled events.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Smart Reminders Section -->
+    <section id="reminders" class="section split-section">
+      <div class="container split-container">
+        <div class="split-content reveal">
+          <div class="section-tag">Intelligent Notifications</div>
+          <h2 class="split-title">Alerts that understand <span class="text-gradient">time and place.</span></h2>
+          <p class="split-text">TaskMate reminders adapt to you. Get alerted when you reach the grocery store or customize alerts to recur according to complex schedules.</p>
+          <ul class="features-list">
+            <li>
+              <span class="list-icon">📍</span>
+              <div>
+                <strong>Geofenced Location Alerts:</strong> Remind you to buy milk only when you approach the store.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">🔔</span>
+              <div>
+                <strong>Nudge Reminders:</strong> Gently nudge a family member if a critical chore is close to deadline.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">🎯</span>
+              <div>
+                <strong>Custom Priorities:</strong> Set varying urgency status flags for items.
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual reveal">
+          <div class="iphone-mockup floating-slow">
+            <div class="iphone-bezel"></div>
+            <div class="iphone-screen">
+              <div class="iphone-notch"></div>
+              <div class="iphone-status-bar">
+                <span class="time">9:41</span>
+                <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+              </div>
+              <img src="screenshots/5.png" alt="Smart Reminders Screen" class="iphone-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Family Workspace Section -->
+    <section id="workspace" class="section split-section alternate-bg">
+      <div class="container split-container">
+        <div class="split-visual reveal">
+          <div class="iphone-mockup floating">
+            <div class="iphone-bezel"></div>
+            <div class="iphone-screen">
+              <div class="iphone-notch"></div>
+              <div class="iphone-status-bar">
+                <span class="time">9:41</span>
+                <div class="icons"><span>📶</span><span>📶</span><span>🔋</span></div>
+              </div>
+              <img src="screenshots/6.png" alt="Family Workspace Screen" class="iphone-img">
+            </div>
+          </div>
+        </div>
+        <div class="split-content reveal">
+          <div class="section-tag">Central Hub</div>
+          <h2 class="split-title">Create a customized <span class="text-gradient">Family Dashboard.</span></h2>
+          <p class="split-text">Organize workspace boards for chores, budget trackers, menu plans, or message boards. Give everyone a beautiful workspace tailored to home orchestration.</p>
+          <ul class="features-list">
+            <li>
+              <span class="list-icon">🏡</span>
+              <div>
+                <strong>House Boards:</strong> Post announcements, store gate codes, or save lists.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">🐣</span>
+              <div>
+                <strong>Kids View:</strong> Simplified interfaces for kids with custom gamified reward lists.
+              </div>
+            </li>
+            <li>
+              <span class="list-icon">💬</span>
+              <div>
+                <strong>Internal Quick Notes:</strong> Quick pinned notices for shopping trips.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Statistics Section -->
+    <section id="statistics" class="section stats-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag center">Gamified Metrics</div>
+          <h2 class="section-title">Gain insights into your <span class="text-gradient">home habits.</span></h2>
+          <p class="section-subtitle">Track task volume, member participation scores, and completion histories with state-of-the-art graphs.</p>
+        </div>
+
+        <div class="stats-display-container">
+          <div class="stats-grid">
+            
+            <div class="stats-card glass-card reveal">
+              <div class="stats-icon">📈</div>
+              <h3>Interactive Charts</h3>
+              <p>Compare weekly tasks, verify completed cycles, and observe monthly productivity ratios.</p>
+              <div class="stats-mockup-wrapper">
+                <div class="iphone-mockup">
+                  <div class="iphone-bezel"></div>
+                  <div class="iphone-screen">
+                    <img src="screenshots/4.1.png" alt="Stats Chart" class="iphone-img">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-card glass-card reveal">
+              <div class="stats-icon">🏆</div>
+              <h3>Team Contributions</h3>
+              <p>Check contribution percentages, chore completions, and cheer active family members.</p>
+              <div class="stats-mockup-wrapper">
+                <div class="iphone-mockup">
+                  <div class="iphone-bezel"></div>
+                  <div class="iphone-screen">
+                    <img src="screenshots/4.2.png" alt="Stats Contributions" class="iphone-img">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-card glass-card reveal">
+              <div class="stats-icon">🧩</div>
+              <h3>Gamified Streaks</h3>
+              <p>Achieve milestones, maintain habits, and encourage kids with fun streaks.</p>
+              <div class="stats-mockup-wrapper">
+                <div class="iphone-mockup">
+                  <div class="iphone-bezel"></div>
+                  <div class="iphone-screen">
+                    <img src="screenshots/4.3.png" alt="Stats Streaks" class="iphone-img">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FAQ Section -->
+    <section id="faq" class="section faq-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+          <p class="section-subtitle">Everything you need to know about the TaskMate application.</p>
+        </div>
+
+        <div class="faq-accordion-container reveal">
+          
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Is TaskMate compatible with both iOS and Android?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Yes, TaskMate is fully cross-platform. It runs perfectly on iOS (both iPhone and iPad) and Android smartphones. Your lists sync instantly across all devices.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Does TaskMate sync in real-time?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Absolutely. Using our cloud infrastructure, any task completed, commented, or edited updates on all shared screens in under 100 milliseconds.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Is my personal data private and secure?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Yes, security is a core pillar. Personal checklists are encrypted and locked on your device. We never sell your personal information, and you have complete control to delete your account anytime.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Can we assign tasks to kids without email accounts?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Yes! Parents can create restricted profile accounts for kids without emails. They can view tasks and tick items directly from a family tablet or shared phone.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Is there a web or desktop application?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Our desktop version is currently under active development and will launch later this year. Subscribing to our newsletter or premium tier will give you early beta access.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Download Section -->
+    <section id="download" class="section download-section">
+      <div class="container download-container glass-card reveal">
+        <div class="download-content">
+          <h2>Streamline your day-to-day. <br><span class="text-gradient">Get TaskMate today.</span></h2>
+          <p>Download the app on your mobile device and experience the ultimate shared productivity environment. Free to get started.</p>
+          
+          <div class="download-badges">
+            <a href="#" class="store-badge-link" id="appstore-btn">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="store-badge">
+            </a>
+            <a href="#" class="store-badge-link" id="googleplay-btn">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="store-badge Google-Play-Badge">
+            </a>
+          </div>
+        </div>
+
+        <div class="download-visual">
+          <div class="mockup-duo">
+            <div class="iphone-mockup phone-back">
+              <div class="iphone-screen">
+                <img src="screenshots/2.2.png" alt="TaskMate Chore List" class="iphone-img">
+              </div>
+            </div>
+            <div class="iphone-mockup phone-front floating">
+              <div class="iphone-bezel"></div>
+              <div class="iphone-screen">
+                <div class="iphone-notch"></div>
+                <img src="screenshots/1.png" alt="TaskMate Main Screen" class="iphone-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 12. Footer Section -->
+  <footer id="footer" class="footer-section">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">
+          <span class="logo-icon">TM</span>
+          <span class="logo-text">TaskMate</span>
+        </a>
+        <p class="footer-tagline">Synchronizing family routines with premium tools, bento grids, and real-time syncing.</p>
+      </div>
+
+      <div class="footer-links-container">
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <a href="#hero">Home</a>
+          <a href="#features">Features</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#workspace">Workspace</a>
+          <a href="#statistics">Stats</a>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="#privacy" id="privacy-policy-link">Privacy Policy</a>
+          <a href="#delete-account" id="delete-account-link" class="warning-link">Delete Account</a>
+          <a href="#terms">Terms of Service</a>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <a href="#">Twitter / X</a>
+          <a href="#">Instagram</a>
+          <a href="#">Support Hub</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 TaskMate Inc. All rights reserved. Built with Apple iOS 26 design principles.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
